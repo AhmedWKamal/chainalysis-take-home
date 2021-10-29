@@ -14,7 +14,7 @@ class Backend():
     def __init__(self, symbols=["BTC","ETH"]):
         self.exchanges = api_wrapper.ExchangeAPIWrapper(symbols)
         self.data = self.exchanges.update_and_get_prices()
-        self.update_time = time.strftime("%H:%M:%S", time.localtime())
+        self.update_time = time.strftime("%H:%M:%S %Z", time.localtime())
         self.data.append(self.update_time)
         thread = threading.Thread(target=self.update_data, args=())
         thread.daemon = True
@@ -23,7 +23,7 @@ class Backend():
     def update_data(self):
         while True:
             self.data = self.exchanges.update_and_get_prices()
-            self.data[2] = time.strftime("%H:%M:%S", time.localtime())
+            self.data[2] = time.strftime("%H:%M:%S %Z", time.localtime())
             self.write_to_database()
             time.sleep(3)
 
