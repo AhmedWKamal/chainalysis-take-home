@@ -1,1 +1,1 @@
-[{'Exchange': 'Bittrex', 'BTC': {'Buy': 62271.148, 'Sell': 62246.463}, 'ETH': {'Buy': 4398.864, 'Sell': 4396.549}}, {'Exchange': 'Coinbase', 'BTC': {'Buy': 62604.63, 'Sell': 61959.99}, 'ETH': {'Buy': 4422.21, 'Sell': 4377.07}}, '17:29:32 EDT']
+[{'Exchange': 'Bittrex', 'BTC': {'Buy': 62194.02, 'Sell': 62169.62}, 'ETH': {'Buy': 4397.25, 'Sell': 4394.189}}, {'Exchange': 'Coinbase', 'BTC': {'Buy': 62597.75, 'Sell': 61911.52}, 'ETH': {'Buy': 4421.58, 'Sell': 4376.97}}, '17:29:53 EDT']
