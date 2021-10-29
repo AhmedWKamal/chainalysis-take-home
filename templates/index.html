@@ -17,11 +17,11 @@
     <script>
         setInterval(function () {
             $.getJSON($SCRIPT_ROOT + '/_update_page', {}, function(data) {
-                $("#bittrex_BTC_price").text(data[0]);
-                $("#coinbase_BTC_price").text(data[1]);
-                $("#bittrex_ETH_price").text(data[2]);
-                $("#coinbase_ETH_price").text(data[3]);
-                $("#current_time").text(data[4]);
+                $("#bittrex_BTC_price").text(data[0]+" ");
+                $("#coinbase_BTC_price").text(data[1]+" ");
+                $("#bittrex_ETH_price").text(data[2]+" ");
+                $("#coinbase_ETH_price").text(data[3]+" ");
+                $("#current_time").text(data[4]+" ");
             });
             return false;
         }, 1000);

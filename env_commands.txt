@@ -1,9 +1,0 @@
-# Next two commands only if you want to run in a virtual environment
-    python -m venv venv
-    . venv/bin/activate
-pip install python-binance
-pip install coinbase
-pip install Flask
-# Probably not this
-    pip install flask-bootstrap
-pip install python-bittrex

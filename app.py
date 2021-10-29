@@ -1,13 +1,12 @@
 from flask import Flask, jsonify, render_template
-import backend
+import backend as be
 
 app = Flask(__name__)
 
-
-backend = backend.Backend()
-
 @app.route("/")
 def home():
+    # Start our backend server
+    mybackend = be.Backend()
     a,b,c,d,e = update_prices()
     return render_template('index.html', bittrex_BTC_price=a, coinbase_BTC_price=b,bittrex_ETH_price=c,coinbase_ETH_price=d,current_time=e)
 
