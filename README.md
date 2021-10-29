@@ -32,4 +32,10 @@ flask run
 
 4. #### What are some other enhancements that could be made?
 
-    The first set of improvements would be to address the sub-optimal choices in (1). Additionally, the UI/UX has room for improvement in its current state. Finally, 
+    The first set of improvements would be to address the sub-optimal choices in (1). Additionally, the UI/UX has room for improvement in its current state.
+
+### Notes on the Stack:
+
+- Python backend
+- Flask + Jinja frontend (rendered to HTML/Javascript/CSS, implements Bootstrap framework)
+- Hosted as an Azure web app for the live version
