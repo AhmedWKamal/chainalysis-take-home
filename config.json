@@ -1,0 +1,9 @@
+{
+    "Binance_API_Key": "jmdy1bTsVdHfnfdTnsBSnH4J5iZfdrIQmpF2UJlydkGV0G5KquNw8bLco4faN1lD",
+    "Binance_API_Secret": "H6pXgcuJu3G2qrQ2bCbkQvbV14q6KfN4jIWRPXDeXEXJ2IWdCTOAGKIW1gfGTWtK",
+    "Binance_TLD": "us",
+    "Coinbase_API_Key": "f5OfGfYPrNOKwrRr",
+    "Coinbase_API_Secret": "9tPDv0vXzSmvXfJ5q33luDcHMbB5K8m6",
+    "Coinbase_API_Version": "2021-10-24",
+    "Coinbase_Currency_Code": "USD"
+}
