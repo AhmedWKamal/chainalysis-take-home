@@ -34,6 +34,7 @@ class Backend():
         return str(self.data)
 
     def write_to_database(self):
+        #TODO: Connect and write to a hosted database
         # Will actually write to a file here
         f = open("data.txt", "w")
         f.write(str(self.data)+"\n")

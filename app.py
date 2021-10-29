@@ -1,6 +1,10 @@
-from flask import Flask, jsonify, render_template, request
+from flask import Flask, jsonify, render_template
+import backend
 
 app = Flask(__name__)
+
+
+backend = backend.Backend()
 
 @app.route("/")
 def home():
