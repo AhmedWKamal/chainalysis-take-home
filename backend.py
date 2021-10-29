@@ -23,7 +23,7 @@ class Backend():
     def update_data(self):
         while True:
             self.data = self.exchanges.update_and_get_prices()
-            self.data.append(time.strftime("%H:%M:%S", time.localtime()))
+            self.data[2] = time.strftime("%H:%M:%S", time.localtime())
             self.write_to_database()
             time.sleep(3)
 

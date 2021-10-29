@@ -17,8 +17,7 @@
     <script>
         setInterval(function () {
             $.getJSON($SCRIPT_ROOT + '/_update_page', {}, function(data) {
-                // [{"Exchange": "Bittrex", "BTC": {"Buy": 62348.54, "Sell": 62324.55}, "ETH": {"Buy": 4391.418, "Sell": 4388.687}}, {"Exchange": "Coinbase", "BTC": {"Buy": "62651.85", "Sell": "62027.46"}, "ETH": {"Buy": "4411.45", "Sell": "4368.29"}}, "15:54:19"]
-                // alert(data)
+                alert(data)
                 // $("#bittrex_BTC_price").text(data[0].toFixed(2)+" ");
                 // $("#coinbase_BTC_price").text(data[1].toFixed(2)+" ");
                 // $("#bittrex_ETH_price").text(data[2].toFixed(2)+" ");
@@ -47,11 +46,8 @@
         </div>
     </nav>
     <div class="row">
-        <div class="col-lg-8 p-3 pb-md-4 mx-auto text-center">
-            <h5 class="fs-5 fw-light text-light">View current prices and see which exchange is recommended. Last updated: <span class="current_time">{{data[2]}}</span></h5>
-        </div>
+        <p class="fs-5 fw-light text-light">View current Bitcoin prices and see which exchange is recommended. Last updated:<span class="current_time">{{current_time}}</span></p>
     </div>
-
     <div class="row">
         <div class="col-lg-8 p-3 pb-md-4 mx-auto text-center">
             <h3 class="fw-normal text-light h3">Bitcoin (BTC)</h3>
@@ -59,59 +55,55 @@
     </div>
     <div class="row row-cols-1 row-cols-md-3 mb-3 text-center justify-content-center">
 
-
-
         <div class="col col-lg-2">
             <div class="card text-white bg-dark mb-4 rounded-3 shadow-sm">
                 <div class="card-header py-3">
                     <h5 class="my-0 fw-normal">Buy: Coinbase</h5>
                 </div>
                 <div class="card-body">
-                    <h3 class="card-title pricing-card-title" >$<span id="coinbase_BTC_price">{{"%0.2f"| format(data[1]["BTC"]["Buy"]|float) }} </span><small class="text-muted h4 fw-light">USD</small></h3>
+                    <h3 class="card-title pricing-card-title" >$<span id="coinbase_BTC_price">{{".2f".format(data[1]["BTC"]["Buy"])}} </span><small class="text-muted h4 fw-light">USD</small></h3>
                     <ul class="list-unstyled mt-3 mb-4">
                     {% if data[1]["BTC"]["Buy"]|float < data[0]["BTC"]["Buy"]|float %}
-                        <li><small>Recommended: Lower Price</small><li>
+                        <li>Recommended: Lower Price</li>
                     {% else %}
-                        <li><small>Not Recommended</small><li>
+                        <li>Not Recommended</li>
                     {% endif %}
                     </ul>
                     <button type="button" class="w-100 btn btn-lg btn-outline-danger">Buy now</button>
                 </div>
             </div>
         </div>
+        <!---
         <div class="col col-lg-2">
             <div class="card text-white bg-dark mb-4 rounded-3 shadow-sm">
                 <div class="card-header py-3">
                     <h5 class="my-0 fw-normal">Sell: Coinbase</h5>
                 </div>
                 <div class="card-body">
-                    <h3 class="card-title pricing-card-title" >$<span id="coinbase_BTC_price">{{"%0.2f"| format(data[1]["BTC"]["Sell"]|float) }} </span><small class="text-muted h4 fw-light">USD</small></h3>
+                    <h3 class="card-title pricing-card-title" >$<span id="coinbase_BTC_price">{{".2f".format(data[1]["BTC"]["Sell"])}} </span><small class="text-muted h4 fw-light">USD</small></h3>
                     <ul class="list-unstyled mt-3 mb-4">
                     {% if data[1]["BTC"]["Sell"]|float > data[0]["BTC"]["Sell"]|float %}
-                        <li><small>Recommended: Higher Price</small><li>
+                        <li>Recommended: Higher Price</li>
                     {% else %}
-                        <li><small>Not Recommended</small><li>
+                        <li>Not Recommended</li>
                     {% endif %}
                     </ul>
                     <button type="button" class="w-100 btn btn-lg btn-outline-danger">Buy now</button>
                 </div>
             </div>
         </div>
-
-
-
         <div class="col col-lg-2">
             <div class="card text-white bg-dark mb-4 rounded-3 shadow-sm">
                 <div class="card-header py-3">
                     <h5 class="my-0 fw-normal">Buy: Bittrex</h5>
                 </div>
                 <div class="card-body">
-                    <h3 class="card-title pricing-card-title" >$<span id="coinbase_BTC_price">{{"%0.2f"| format(data[0]["BTC"]["Buy"]|float) }} </span><small class="text-muted h4 fw-light">USD</small></h3>
+                    <h3 class="card-title pricing-card-title" >$<span id="coinbase_BTC_price">{{".2f".format(data[0]["BTC"]["Buy"])}} </span><small class="text-muted h4 fw-light">USD</small></h3>
                     <ul class="list-unstyled mt-3 mb-4">
-                    {% if data[0]["BTC"]["Buy"]|float < data[1]["BTC"]["Buy"]|float %}
-                        <li><small>Recommended: Lower Price</small><li>
+                    {% if data[0]["BTC"]["Buy"]|float > data[1]["BTC"]["Buy"]|float %}
+                        <li>Recommended: Lower Price</li>
                     {% else %}
-                        <li><small>Not Recommended</small><li>
+                        <li>Not Recommended</li>
                     {% endif %}
                     </ul>
                     <button type="button" class="w-100 btn btn-lg btn-outline-danger">Buy now</button>
@@ -124,45 +116,40 @@
                     <h5 class="my-0 fw-normal">Sell: Bittrex</h5>
                 </div>
                 <div class="card-body">
-                    <h3 class="card-title pricing-card-title" >$<span id="coinbase_BTC_price">{{"%0.2f"| format(data[0]["BTC"]["Sell"]|float) }} </span><small class="text-muted h4 fw-light">USD</small></h3>
+                    <h3 class="card-title pricing-card-title" >$<span id="coinbase_BTC_price">{{".2f".format(data[0]["BTC"]["Sell"])}} </span><small class="text-muted h4 fw-light">USD</small></h3>
                     <ul class="list-unstyled mt-3 mb-4">
                     {% if data[0]["BTC"]["Sell"]|float > data[1]["BTC"]["Sell"]|float %}
-                        <li><small>Recommended: Higher Price</small><li>
+                        <li>Recommended: Higher Price</li>
                     {% else %}
-                        <li><small>Not Recommended</small><li>
+                        <li>Not Recommended</li>
                     {% endif %}
                     </ul>
                     <button type="button" class="w-100 btn btn-lg btn-outline-danger">Buy now</button>
                 </div>
             </div>
-        </div>
-
-
-
-    
+        </div>-->
     </div>
-
+    
+    
+    <!--
     <div class="row">
         <div class="col-lg-8 p-3 pb-md-4 mx-auto text-center">
             <h3 class="fw-normal text-light h3">Ethereum (ETH)</h3>
         </div>
     </div>
     <div class="row row-cols-1 row-cols-md-3 mb-3 text-center justify-content-center">
-
-
-
         <div class="col col-lg-2">
             <div class="card text-white bg-dark mb-4 rounded-3 shadow-sm">
                 <div class="card-header py-3">
                     <h5 class="my-0 fw-normal">Buy: Coinbase</h5>
                 </div>
                 <div class="card-body">
-                    <h3 class="card-title pricing-card-title" >$<span id="coinbase_BTC_price">{{"%0.2f"| format(data[1]["ETH"]["Buy"]|float) }} </span><small class="text-muted h4 fw-light">USD</small></h3>
+                    <h3 class="card-title pricing-card-title" >$<span id="coinbase_BTC_price">{{".2f".format(data[1]["ETH"]["Buy"])}} </span><small class="text-muted h4 fw-light">USD</small></h3>
                     <ul class="list-unstyled mt-3 mb-4">
                     {% if data[1]["ETH"]["Buy"]|float < data[0]["ETH"]["Buy"]|float %}
-                        <li><small>Recommended: Lower Price</small><li>
+                        <li>Recommended: Lower Price</li>
                     {% else %}
-                        <li><small>Not Recommended</small><li>
+                        <li>Not Recommended</li>
                     {% endif %}
                     </ul>
                     <button type="button" class="w-100 btn btn-lg btn-outline-danger">Buy now</button>
@@ -175,33 +162,30 @@
                     <h5 class="my-0 fw-normal">Sell: Coinbase</h5>
                 </div>
                 <div class="card-body">
-                    <h3 class="card-title pricing-card-title" >$<span id="coinbase_BTC_price">{{"%0.2f"| format(data[1]["ETH"]["Sell"]|float) }} </span><small class="text-muted h4 fw-light">USD</small></h3>
+                    <h3 class="card-title pricing-card-title" >$<span id="coinbase_BTC_price">{{".2f".format(data[1]["ETH"]["Sell"])}} </span><small class="text-muted h4 fw-light">USD</small></h3>
                     <ul class="list-unstyled mt-3 mb-4">
                     {% if data[1]["ETH"]["Sell"]|float > data[0]["ETH"]["Sell"]|float %}
-                        <li><small>Recommended: Higher Price</small><li>
+                        <li>Recommended: Higher Price</li>
                     {% else %}
-                        <li><small>Not Recommended</small><li>
+                        <li>Not Recommended</li>
                     {% endif %}
                     </ul>
                     <button type="button" class="w-100 btn btn-lg btn-outline-danger">Buy now</button>
                 </div>
             </div>
         </div>
-
-
-
         <div class="col col-lg-2">
             <div class="card text-white bg-dark mb-4 rounded-3 shadow-sm">
                 <div class="card-header py-3">
                     <h5 class="my-0 fw-normal">Buy: Bittrex</h5>
                 </div>
                 <div class="card-body">
-                    <h3 class="card-title pricing-card-title" >$<span id="coinbase_BTC_price">{{"%0.2f"| format(data[0]["ETH"]["Buy"]|float) }} </span><small class="text-muted h4 fw-light">USD</small></h3>
+                    <h3 class="card-title pricing-card-title" >$<span id="coinbase_BTC_price">{{".2f".format(data[0]["ETH"]["Buy"])}} </span><small class="text-muted h4 fw-light">USD</small></h3>
                     <ul class="list-unstyled mt-3 mb-4">
-                    {% if data[0]["ETH"]["Buy"]|float < data[1]["ETH"]["Buy"]|float %}
-                        <li><small>Recommended: Lower Price</small><li>
+                    {% if data[0]["ETH"]["Buy"]float > data[1]["ETH"]["Buy"]|float %}
+                        <li>Recommended: Lower Price</li>
                     {% else %}
-                        <li><small>Not Recommended</small><li>
+                        <li>Not Recommended</li>
                     {% endif %}
                     </ul>
                     <button type="button" class="w-100 btn btn-lg btn-outline-danger">Buy now</button>
@@ -214,12 +198,12 @@
                     <h5 class="my-0 fw-normal">Sell: Bittrex</h5>
                 </div>
                 <div class="card-body">
-                    <h3 class="card-title pricing-card-title" >$<span id="coinbase_BTC_price">{{"%0.2f"| format(data[0]["ETH"]["Sell"]|float) }} </span><small class="text-muted h4 fw-light">USD</small></h3>
+                    <h3 class="card-title pricing-card-title" >$<span id="coinbase_BTC_price">{{".2f".format(data[0]["ETH"]["Sell"])}} </span><small class="text-muted h4 fw-light">USD</small></h3>
                     <ul class="list-unstyled mt-3 mb-4">
                     {% if data[0]["ETH"]["Sell"]|float > data[1]["ETH"]["Sell"]|float %}
-                        <li><small>Recommended: Higher Price</small><li>
+                        <li>Recommended: Higher Price</li>
                     {% else %}
-                        <li><small>Not Recommended</small><li>
+                        <li>Not Recommended</li>
                     {% endif %}
                     </ul>
                     <button type="button" class="w-100 btn btn-lg btn-outline-danger">Buy now</button>
@@ -227,10 +211,7 @@
             </div>
         </div>
 
-
-
-    
-    </div>
+    </div>-->
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 
