@@ -32,8 +32,8 @@ class ExchangeAPIWrapper():
             temp = self.b_client.get_ticker(f"USD-{symbol}")
             self.b_data[symbol]["Sell"] = temp["result"]["Bid"]
             self.b_data[symbol]["Buy"] = temp["result"]["Ask"]
-            self.c_data[symbol]["Buy"] = self.c_client.get_buy_price(currency_pair = f'{symbol}-USD')["amount"]
-            self.c_data[symbol]["Sell"] = self.c_client.get_sell_price(currency_pair = f'{symbol}-USD')["amount"]
+            self.c_data[symbol]["Buy"] = float(self.c_client.get_buy_price(currency_pair = f'{symbol}-USD')["amount"])
+            self.c_data[symbol]["Sell"] = float(self.c_client.get_sell_price(currency_pair = f'{symbol}-USD')["amount"])
         return self.exchange_data
 
 

@@ -3,10 +3,12 @@
 
 ### Getting Started
 
-To build and run the app, clone the repository to a local directory on a machine with Python 3.X installed. The app entire app can then be run using by launching the main file:
+Live version link: http://ahmed-kamal-chainalysis.azurewebsites.net
+
+To build and run the app, clone this repository to a local directory on a machine with Python 3.X installed. Navigate to the newly cloned directory, and the entire app can then be run using the command
 
 ```
-python3 TakeHome.py
+flask run
 ```
 
 ### FAQs
