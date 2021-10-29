@@ -5,9 +5,9 @@
 
 To build and run the app, clone the repository to a local directory on a machine with Python 3.X installed. The app entire app can then be run using by launching the main file:
 
-'''
+```
 python3 TakeHome.py
-'''
+```
 
 ### FAQs
 
