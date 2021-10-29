@@ -5,6 +5,8 @@
 
 Live version link: http://ahmed-kamal-chainalysis.azurewebsites.net
 
+Note - Azure's free hosting tier seems to crash with repeated requests
+
 To build and run the app, clone this repository to a local directory on a machine with Python 3.X installed. Navigate to the newly cloned repository and activate the virtual environment the app is built in:
 
 
