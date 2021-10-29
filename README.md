@@ -5,15 +5,21 @@
 
 Live version link: http://ahmed-kamal-chainalysis.azurewebsites.net
 
-To build and run the app, clone this repository to a local directory on a machine with Python 3.X installed. Navigate to the newly cloned repository and activate the virtual environment the app is built in
+To build and run the app, clone this repository to a local directory on a machine with Python 3.X installed. Navigate to the newly cloned repository and activate the virtual environment the app is built in:
+
+
 **Windows:**
 ```
 venv\Scripts\activate.bat
 ```
+
+
 **Unix or MacOS:**
 ```
 . venv/bin/activate
 ```
+
+
 Now the app can be run using the command
 ```
 flask run
